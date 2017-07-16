@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>页面加载</title>
+</head>
+<body>
+<p>
+	页面加载
+		从输入url到得到html的详细过程？
+		window.onload和DOMContentLoaded的区别？
+			window.onload；页面的全部资源加载完才会执行；
+			DOMContentLoaded；DOM渲染完即可执行，此时图片、视频还可能没有加载完；
+		加载资源的形式?
+			1：输入url(或者掉转页面)加载html
+			2：加载html中的静态资源；例如script
+		加载一个资源的过程?
+			1浏览器根据DNS服务器得到域名的IP地址；
+			2向这个IP地址发送http请求；
+			3服务器收到、处理并返回http请求；
+			4浏览器得到返回内容；
+		浏览器渲染页面的过程？
+</p>
+<p>
+	性能优化
+		加载资源优化
+			静态资源的压缩合并；
+			静态资源缓存；
+			使用CDN让资源加载更快；
+			使用SSR后端渲染，数据直接输出到html中；
+		渲染优化
+			CSS放前面，JS放后面；
+			懒加载（图片懒加载）；
+			减少DOM查询，缓存DOM查询；
+			减少DOM操作，多个操作尽量合并在一起执行；
+			事件节流；
+			尽早执行操作（如DOMContentLoaded）;
+
+</p>
+<p>
+	安全性
+		前端安全问题有哪些？
+		XSS跨站请求攻击
+			预防：
+			前端替换关键字，例如替换<&lt; >为&gt;
+			后端替换
+
+
+		XSRF跨站请求伪造
+			预防：增加验证流程，
+</p>
+</body>
+</html>
