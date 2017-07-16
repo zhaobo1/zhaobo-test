@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	//数组方法,foreach,every,some,sort,filiter,map
+	//1:foreach
+	var arr1 = [1,2,3,4];
+	arr1.forEach(function(item,index){
+		console.log(item,index);
+	})
+	//2:every,判断所有元素都满足一个条件，例如判断一个数组的所有元素是否都小于4
+	var arr2 = [1,2,3]
+	var result = arr2.every(function(item,index){
+		if(item<4){
+			return true
+		}
+	})
+	console.log(result)
+	//3:some,判断所有元素是否有一个满足条件；例如判断一个数值中是否有一个元素大于2；
+	var arr3 = [1,2,3]
+	var result = arr3.some(function(item,index){
+		if(item>2){
+			return true
+		}
+	})
+	console.log(result)
+	//sort排序；
+	var arr4 = [1,2,4,3,7,5,6];
+	var arrs = arr4.sort(function(a,b){
+		// 从小到大排序数组
+		return a - b;
+		// 从大到小排序数组
+		return b - a;
+	})
+	//map；重新组装数组；
+	var arr5 = [1,2,3,4,5];
+	var maparr = arr5.map(function(item,index){
+		return '<ni>'+item+'</ni>'
+	})
+	console.log(maparr);//-->['<ni>1</ni>','<ni>2</ni>','<ni>3</ni>','<ni>4</ni>','<ni>5</ni>']
+
+	//filter;过滤数组
+	var arr6 = [1,2,3,4];
+	var arrfilter = arr6.filter(function(item,index){
+		//通过某一条件过滤数组
+		if(item>=2){
+			return true;
+		}
+	})
+	console.log(arrfilter);
+</script>
+</html>

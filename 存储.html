@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>存储</title>
+</head>
+<body>
+<p>描述下cookie,sessionStorge和localStorge的区别</p>
+
+cookie本身是用于客户端和服务器端通信的；
+但它有本地存储的功能，于是就被借用；
+cookie存储量太小，只有4KB
+所有http请求都带着，会影响获取资源的效率
+API简单，需要封装才能用 document.cookie = ...
+
+
+
+localStorage和sessionStorage
+
+最大容量5M
+API简单易用；localStorage.setItem(key,value);localStorage.getItem(key);
+sessionStorage浏览器关闭之后就会清空；
+localStorage会不；
+
+ios safari隐藏模式下
+localStorage.getItem会报错；
+建议统一使用try-catch封装
+
+</body>
+</html>

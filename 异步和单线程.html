@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>异步和单线程</title>
+</head>
+<body>
+<p>同步和异步的区别</p>
+<p>举个同步异步的例子：alert是同步;settimeout是异步</p>
+<p>关于setTimeout的笔试题</p>
+<p>前端使用异步的场景有哪些</p>
+
+<p>
+	何时需要异步？
+	在可能发生等待的情况；
+	<span>定时任务：setTimeout,setInterval</span>
+	<span>网络请求；ajax请求，动态img加载</span>
+	<span>事件绑定</span>
+</p>
+</body>
+<script type="text/javascript">
+	console.log(100);
+	setTimeout(function(){
+		console.log(200)
+	})
+	console.log(300)
+
+</script>
+</html>

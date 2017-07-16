@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>跨域</title>
+</head>
+<body>
+<p>什么是跨域</p>
+<p>JSONP</p>
+<p>服务器端设置http header</p>
+</body>
+<script type="text/javascript">
+	//因为浏览器的同源策略，不允许ajax访问其他域接口；
+	//跨域条件：协议，域名，端口，有一个不同就算跨域；
+	//可以跨域的三个标签
+		// 但是有三个标签允许跨域加载资源
+		// <img src = xxx/>;作了防盗链的图片无法加载；用于打点统计；
+		// <link href= xxx >；可以使用CDN，CDN也是其他域；
+		// <script src = xxx >；可以用于JSONP
+		window.callback = function(data){
+			console.log(data);
+		}
+
+</script>
+用script标签跨过同源策略;
+动态的返回一个JS语法片段如 callback({x:100,y:200});
+这就可以去执行客户端预先定义好的函数；
+<script type="text/javascript" src="http://www.baidu.com/api.js"></script>
+
+</html>

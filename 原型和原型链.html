@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+知识点：
+<p>构造函数</p>
+<p>构造函数-扩展</p>
+<p>原型规则和示例</p>
+<pre>
+
+	5条原型规则：
+		1：所有的引用类型（数组，对象，函数），都具有对象特性，即可以自由扩展属性（除了null以外）
+			var obj = {};obj.a = 100;
+			var arr = [];arr.a = 100;
+			function fn(){};fn.a = 100;
+		2：所有的引用类型（数组，对象，函数），都有一个__proto__（隐式原型）属性，属性值是一个普通的对象（除了null以外）
+
+		3：所有的函数，都有一个prototype（显式原型）属性，属性值也是一个普通的对象；
+
+		4：所有的引用类型（数组，对象，函数），__proto__属性值指向它的构造函数的prototype属性值
+
+		5：当试图得到引用类型的属性时，如果这个对象本身没有这个属性
+			那么会去它的__proto__（即它的构造函数的prototype）中寻找；
+
+	instanceof判断一个函数是否是一个变量的构造函数；
+</pre>
+<p>原型链</p>
+<p>instanceof</p>
+<p></p>
+</body>
+<script type="text/javascript">
+	//var obj = {};
+	var obj = new Object();
+	obj.a = 100;
+	console.log(obj.__proto__);
+	console.log(obj.prototype);//这个prototype只有函数才拥有，
+	console.log(obj.__proto__===Object.prototype)
+	
+	console.log('---------------------------');
+	/*Function.prototype.isname = function(){
+		alert('zb');
+	};*/
+	function fns() {};
+	//fns.isname();
+	//var fns = new Function();
+	console.log(fns instanceof Object);
+	console.log('fns.__proto__：',fns.__proto__);
+	console.log('fns.prototype：',fns.prototype);
+	console.log('Function.prototype：',Function.prototype);
+	console.log(fns.__proto__===Function.prototype);
+
+
+	function Elem(id){
+		this.el = document.getElementById(id);
+		return this;
+	}
+	Elem.prototype.html = function(htmls){
+		this.el.innerHTML = htmls;
+		return this;
+	}
+	Elem.prototype.on = function(type,fn){
+		this.el.addEventlistener(type,fn);
+		return this;
+	}
+	var el = new Elem('conent');
+	el.html('<p>qweqew</p>').on('click',function(){
+		alert(1);
+	})
+
+</script>
+</html>

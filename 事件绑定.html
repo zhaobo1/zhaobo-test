@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>事件绑定</title>
+</head>
+<body>
+	<p>编写一个通用的事件监听函数？</p>
+	<p>
+		描述事件冒泡；
+		事件代理；
+	</p>
+	<p>
+		对于一个无限下来加载图片的页面，如何给每个图片绑定事件；
+		使用事件代理来处理
+	</p>	
+	<a href="" id="new">new</a>
+	<a href="" id="link">link</a>
+	<div id="div1">
+		<a href="#">a1</a>
+		<a href="#">a2</a>
+		<a href="#">a3</a>
+		<a href="#">a4</a>
+	</div>
+
+</body>
+<script type="text/javascript">
+	//原生javascript编写一个通用的事件监听函数；
+	//方式1；不包含代理
+	function bindEvent1(elem,type,fn){
+		elem.addEventListener(type,fn);
+	}
+	var linka = document.getElementById('link');
+	bindEvent1(linka,'click',function(e){
+		e.preventDefault();
+		console.log('....');
+	})
+
+	//方式2：包含代理
+	function bindEvent(elem,type,seltor,fn)
+	{
+		if(fn==null)
+		{
+			fn = seltor;
+			seltor = null;
+		}
+		elem.addEventListener(type,function(e){
+			if(seltor)
+			{
+				//包含代理
+				var target = e.target;
+				if(target.matches(seltor))
+				{
+					fn.call(target,e);
+				}
+			}else{
+				//不含代理
+				fn(e);
+			}
+
+		})
+	}
+
+	var div1 = document.getElementById('div1');
+	bindEvent(div1,'click','a',function(e){
+		e.preventDefault();
+		console.log(this.innerHTML);
+	})
+
+	var a = document.getElementById('new');
+	bindEvent(a,'click',function(e){
+		e.preventDefault();
+		console.log(a.innerHTML);
+	})
+
+
+</script>
+</html>

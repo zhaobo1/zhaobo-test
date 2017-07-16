@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM</title>
+</head>
+<body>
+<p>DOM是哪种基本的数据结构？</p>
+<p>DOM操作的常用API有哪些？</p>
+<p>DOM节点的attr和property有何区别？</p>
+<hr>
+DOM本质
+	XML是一种可扩展的描述语言，
+	它可以描述任何结构化的数据。
+	是一种树形数据结构；标签名可以自定义。
+	HTML是XML的一种特殊结构；
+	
+	浏览器拿到这个HTML代码后把HTML代码结构化
+	成浏览器和JS可识别的模型，这个模型就叫
+	DOM，它是个树形结构；		
+
+
+DOM节点操作
+	1：获取DOM节点；
+		document.getElementById();//单个
+		document.getElementsByTagName();//集合
+		document.getElementsByClassName();//集合
+		document.querySelectorAll();//集合
+		以上都是返回的JS对象
+	2： property和attribute的区别
+		property是JS对象的一个属性；
+		例如p.nodeName;nodeName就是P的一个property
+		attribute是标签的属性，并不是JS对象的property，
+		是DOM文档中的。
+	3：
+	
+
+DOM结构操作
+	1：新增节点；
+		>1: 创建新节点：
+			var div1 = document.getElementById('div1');
+			var p = document.createElement('p');
+			p.innerHTML = '你好';
+			div1.appendChild(div1);
+		>2：移动节点：
+			var div1 = document.getElementById('div1');
+			var p2 = document.getElementById('p2');
+			div1.appendChild(p2);
+
+	2：获取父元素；
+		var div1 = document.getElementById('div1');
+		var child = div1.parentElement;
+
+	3：获取子元素；
+		var div1 = document.getElementById('div1');
+		var child = div1.childNodes;
+		获取的子元素合集中可能存在空文本，text;
+		使用child[0].nodeType/child[0].nodeName来区分
+		是否是空文本
+
+	4：删除节点；
+		div1.removeChild(child[0])
+
+</body>
+
+</html>
